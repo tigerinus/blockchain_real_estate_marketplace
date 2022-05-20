@@ -1,22 +1,34 @@
 # Udacity Blockchain Capstone
 
-## Addresses
+## Information
 
-|           Contract | Address                                      |
-|--------------------|----------------------------------------------|
-|     ERC721Mintable | `0xaE97D0609b066A2AAbf854667A695eDa6959a2B6` |
-|           Verifier | `0x5CEBA96644D121424781A1940ACB0De15cD418e2` |
-| SolnSquareVerifier | `0x720484c6c3f25Dfc49de0fD7cc720B88D3103fA0` |
+### Addresses
 
-## Contract ABI
+|           Contract | Address
+|--------------------|--------
+|     ERC721Mintable | [`0xaE97D0609b066A2AAbf854667A695eDa6959a2B6`](https://rinkeby.etherscan.io/address/0xaE97D0609b066A2AAbf854667A695eDa6959a2B6)
+|           Verifier | [`0x5CEBA96644D121424781A1940ACB0De15cD418e2`](https://rinkeby.etherscan.io/address/0x5CEBA96644D121424781A1940ACB0De15cD418e2)
+| SolnSquareVerifier | [`0x720484c6c3f25Dfc49de0fD7cc720B88D3103fA0`](https://rinkeby.etherscan.io/address/0x720484c6c3f25Dfc49de0fD7cc720B88D3103fA0)
 
-(Check the bottom)
+### Contract ABI
 
-## OpenSea MarketPlace Storefront
+(scroll down to see the ABI)
+
+### OpenSea MarketPlace Storefront
 
 <https://testnets.opensea.io/wxh>
 
-## Test
+## Operations
+
+### Mint
+
+```bash
+npm install
+cd eth-contracts
+node mint.js <tokenId>
+```
+
+### Test
 
 To test the contract:
 
