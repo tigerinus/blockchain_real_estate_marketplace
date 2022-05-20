@@ -37,13 +37,13 @@ contract('SolnSquareVerifier', (accounts) => {
 
     // Test if a new solution can be added for contract - SolnSquareVerifier
     it('should add a new solution', async () => {
-      let result = await this.contract.addSolution({ index: 1, addr: accounts[1] });
+      let result = await this.contract.addSolution({ index: 0, addr: accounts[1] });
       assert.equal("SolutionAdded", result.logs[0].event);
     });
 
     // Test if an ERC721 token can be minted for contract - SolnSquareVerifier
     it('should mint a new ERC721 token', async () => {
-      let result = await this.contract.mint(accounts[1], 2, PROOF.proof.a, PROOF.proof.b, PROOF.proof.c, PROOF.inputs);
+      let result = await this.contract.mint(accounts[1], 1, PROOF.proof.a, PROOF.proof.b, PROOF.proof.c, PROOF.inputs);
 
       assert.equal("SolutionAdded", result.logs[0].event);
       assert.equal("Transfer", result.logs[1].event);
