@@ -12,7 +12,7 @@
 
 (Check the bottom)
 
-## OpenSea MarketPlace Storefront:
+## OpenSea MarketPlace Storefront
 
 <https://testnets.opensea.io/wxh>
 

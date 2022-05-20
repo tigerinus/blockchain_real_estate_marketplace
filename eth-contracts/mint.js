@@ -1,6 +1,7 @@
 const fs = require('fs');
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 const web3 = require("web3");
+const process = require("node:process");
 
 const INFURA_KEY = fs.readFileSync(".key").toString().trim();
 const MNEMONIC = fs.readFileSync(".secret").toString().trim();
@@ -10,7 +11,12 @@ const NETWORK = "rinkeby";
 const contract = require('./build/contracts/SolnSquareVerifier.json');
 const ABI = contract.abi;
 
-async function main() {
+async function main(tokenId) {
+  if (tokenId === undefined) {
+    console.log("Usage: node mint.js <tokenId>");
+    process.exit(1);
+  }
+
   console.log("start main");
   const provider = new HDWalletProvider(MNEMONIC, `https://${NETWORK}.infura.io/v3/${INFURA_KEY}`)
   const web3Instance = new web3(provider)
@@ -24,16 +30,18 @@ async function main() {
     console.log("zokratesProof :" + JSON.stringify(zokratesProof.proof.a));
 
     try {
-      const tokenId = 1;
       console.log("OWNER_ADDRESS " + OWNER_ADDRESS + "\n");
       let tx2 = await token.methods
-        .mint(OWNER_ADDRESS, 1)
+        .mint(OWNER_ADDRESS, tokenId)
         .send({ from: OWNER_ADDRESS });
 
       console.log("Minted item. Transaction: " + tx2.transactionHash);
     } catch (e) {
       console.log("error into minted function " + e);
+    } finally {
+      process.exit(0);
     }
   }
 }
-main()
+
+main(process.argv[2]);
