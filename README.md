@@ -8,7 +8,20 @@ OpenSea MarketPlace Storefront:
 
 ## Test
 
+To test the contract:
 
+Step 1 - In one terminal window, run:
+
+```bash
+ganache-cli
+```
+
+Step 2 - In another terminal window, run:
+
+```bash
+cd eth-contracts
+truffle test
+```
 
 ## Project Resources
 
